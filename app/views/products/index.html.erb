@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Sku</th>
+    <th>On hand</th>
+    <% if logged_in? %>
+      <th>Buy</th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product['sku'] %></td>
+      <td><%= product['on_hand'] %></td>
+      <% if logged_in? %>
+        <td><%= form_tag('/orders') do  %>
+          <%= hidden_field_tag 'product_sku', product['sku'] %>
+          <%= hidden_field_tag 'product_id', product['id'] %>
+          <%= submit_tag 'Buy now', class:"btn btn-primary" %>
+        <% end %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

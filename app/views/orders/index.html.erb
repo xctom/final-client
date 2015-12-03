@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Sku</th>
+    <th>Amount</th>
+    <th>Created Time</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.product_sku %></td>
+      <td><%= order.amount %></td>
+      <td><%= order.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
