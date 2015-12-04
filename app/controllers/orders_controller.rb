@@ -13,8 +13,7 @@ class OrdersController < ApplicationController
     begin
       @response = RestClient.patch "http://localhost:4000/products/place_order/#{product_id}.json",
                                    amount: amount,
-                                   token: current_user.token,
-                                   user_id:current_user.id
+                                   token: '4d7cc42e0fcfe5'
       Order.create user_id:current_user.id, product_id: product_id, product_sku: product_sku, amount: 1
       redirect_to orders_path, notice: "Successfully create Order!"
     rescue => e

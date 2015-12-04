@@ -2,7 +2,6 @@ User
   uid: string
   provider: string
   nickname: string
-  token: string
 
 Order
   user_id: integer

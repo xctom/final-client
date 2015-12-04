@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "uid"
     t.string "provider"
     t.string "nickname"
-    t.string "token"
   end
 
 end

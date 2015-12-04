@@ -14,12 +14,8 @@ class SessionsController < ApplicationController
     else
       # User not found
       # sign them up
-      token = SecureRandom.hex(7)
-      user = User.create provider: incoming_provider, uid: incoming_uid, nickname: incoming_info['nickname'], token: token
-      # register key at service side
-      RestClient.post "http://localhost:4000/register.json", :client_user_id => user.id, :token => user.token
+      user = User.create provider: incoming_provider, uid: incoming_uid, nickname: incoming_info['nickname']
     end
-
     session[:user_id] = user.id
     redirect_to root_url, notice: "Hello!#{user.nickname}"
   end
